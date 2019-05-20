@@ -217,7 +217,7 @@ var bango5 = 5
 
 function addThenSubtract(num1, num2, num3){
     var sum = add(num1, num2);
-    return subtract (sum, num3);
+    return subtract(sum, num3); /*Q: typing the phrase "add" or "subtract" in and of itself is not an arithmetic operation, correct (i.e. simply typing "add" or "subtract" does not tell the computer what to do)? Meaning, this only works because the phrase "add" and "subtract" followed by parentheses only work because earlier in the code, we assigned those phrases to functions? */
 }
 
 console.log('addThenSubtract: ', addThenSubtract(bango3, bango4, bango5))
@@ -238,7 +238,7 @@ console.log('addThenSubtract: ', addThenSubtract(bango3, bango4, bango5))
 
 function multiplyThenDivide(num1, num2, num3){
     var product = multiply(num1, num2);
-    return divide (product, num3);
+    return divide(product, num3);
 }
 
 console.log('multiplyThenDivide: ', multiplyThenDivide(bango3, bango4, bango5))
@@ -301,7 +301,7 @@ function shoeSize(inches){
     return cm;
 }
 
-var inches =8.75;
+var inches = 8.75;
 console.log('shoeSize: ', shoeSize(inches))
 
 /*
@@ -315,7 +315,7 @@ console.log('shoeSize: ', shoeSize(inches))
 */
  
 function allCaps(str){
-    return str.toUpperCase(string);
+    return str.toUpperCase();
 }
 
 var string = "believe you can and you're halfway there.";
@@ -330,10 +330,11 @@ console.log(allCaps(string))
 */
 
 function oneCap(str){
-    return str.
-
-    CONTINUE HERE
+    return str[0].toUpperCase() + str.slice(1);
 }
+
+console.log(oneCap(string))
+/* NOTE: since you are only changing the first letter of the string to a capital B but are keeping everything else the same, you would use the slice method which extracts part of the string and returns the extracted part in a new string. Use start and end parameters to specify which the part of string to extract. A start parameter is required and tells the computer what position to begin the extraction (first charater is at position 0). A end parameter is optional. This tells the computer what position to end the extraction (the position up but not including). If omitted, slice() selects all characters from the start-position to the end of the string. */ 
 
 /*
  * #17
@@ -346,7 +347,16 @@ function oneCap(str){
  * Store the return value to a variable named `canDrink`. Console.log your result.
  */
 
+function verifyDrinkingAge(age){
+    if(age>=21){
+        return true;
+    }else{
+        return false;
+    }
+}
 
+var canDrink = verifyDrinkingAge(22);
+console.log(canDrink)
 
 /**
  * #18
@@ -354,8 +364,13 @@ function oneCap(str){
  * Create a function named throwParty. This function will check the value stored in the `canDrink` variable in the previous exercise. If the value is true, it will return the message "Cheee Hoo! We going to da party!" If false, then it will return the message "Meh, see you at Starbucks." Store the return value to a variable named `canParty`. Console.log your result.
  */
 
+function throwParty(){
+    if(canDrink === true){
+        return "Cheee Hoo! We going to da party!";
+    }else{
+       return "Meh, see you at Starbucks."; 
+    }
+}
 
-
-
-
-
+var canParty = throwParty();
+console.log(canParty)
